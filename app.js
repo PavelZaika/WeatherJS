@@ -1,6 +1,6 @@
 // Init weather obj
 
-const weather = new Weather('Moscow', 'ru');
+const weather = new Weather('chicago', 'usa');
 
 //Init UI obj
 
