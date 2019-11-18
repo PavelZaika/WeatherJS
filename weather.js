@@ -1,14 +1,12 @@
-function getJSN(yourUrl){
+function getJSN(yourUrl) {
   let http = new XMLHttpRequest(); // a new request
-  http.open("GET",yourUrl,false);
+  http.open("GET", yourUrl, false);
   http.send(null);
-  return http.responseText;          
+  return http.responseText;
 }
 
-let client = JSON.parse(getJSN('/WeatherJS/key.json'));
+let client = JSON.parse(getJSN("/WeatherJS/key.json"));
 let apiKeyAPI = client.key;
-
-
 
 class Weather {
   constructor(city, country) {
@@ -18,11 +16,13 @@ class Weather {
   }
   //Fetch weather from API
   async getWeather() {
-   const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.country}&units=metric&appid=${this.apiKey}`);
+    const response = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.country}&units=metric&appid=${this.apiKey}`
+    );
 
-   const responseData = await response.json();
+    const responseData = await response.json();
 
-   return responseData;
+    return responseData;
   }
 
   //Change weather location
@@ -31,8 +31,4 @@ class Weather {
     this.city = city;
     this.country = country;
   }
- }
-
-
-
-
+}
